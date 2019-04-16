@@ -9,10 +9,10 @@ root = tree.getroot()
 
 node_lat_lon = tools.get_node_lat_lon(root)
 ways = tools.get_ways(root)
-#np.save('Nodes.npy', node_lat_lon)
-#np.save('Ways.npy',ways)
-#node_lat_lon = np.load('Nodes.npy').item()
-#node_lat_lon = np.load('Ways.npy').item()
+np.save('Nodes.npy', node_lat_lon)
+np.save('Ways.npy',ways)
+node_lat_lon = np.load('Nodes.npy').item()
+node_lat_lon = np.load('Ways.npy').item()
 
 
 sys.getsizeof(ways)
@@ -38,33 +38,32 @@ for i in Linie115[1].getchildren():
         pass
 
 # -----
-#somenodes = []
-#nodeIDs = ways[ways115[-1]]
-#for i in nodeIDs:
-#    try:
-#        somenodes.append(node_lat_lon[i])
-#    except:
-#        pass
-#
-#
-#str_aux = lt.latlon2str(somenodes)
-#lt.plugin_data2leaflet(str_aux)
-
-allnodes115 = []
-for wayID in ways115:
+somenodes = []
+nodeIDs = ways[ways115[32]]
+for i in nodeIDs:
     try:
-        print(wayID)
-        nodeIDs = ways[wayID]
-        for i in nodeIDs:
-            try:
-                allnodes115.append(node_lat_lon[i])
-            except:
-                pass
+        somenodes.append(node_lat_lon[i])
     except:
         pass
 
-str_aux = lt.latlon2str(allnodes115)
+
+str_aux = lt.latlon2str(somenodes)
 lt.plugin_data2leaflet(str_aux)
+
+#allnodes115 = []
+#for wayID in Ways115:
+#    try:
+#        nodeIDs = ways[wayID]
+#        for i in nodeIDs:
+#            try:
+#                allnodes115.append(node_lat_lon[i])
+#            except:
+#                pass
+#    except:
+#        pass
+#
+#str_aux = lt.latlon2str(allnodes115)
+#lt.plugin_data2leaflet(str_aux)
 
 
 # ------ old shit ----------------
